@@ -1,0 +1,9 @@
+FROM node:{{nodeVersion}}
+{% if maintainer %}MAINTAINER {{maintainer}} {%endif%}
+
+ADD . /code
+
+WORKDIR /code
+RUN npm install --production
+
+{% if npmStart %}CMD ["npm", "start"]{% elif entryPoint %}CMD ["node", "{{ entryPoint }}"]{% else %}CMD ["node", "index.js"]{% endif %}

@@ -1,0 +1,22 @@
+{
+  "name": "dockerizing",
+  "version": "0.1.0",
+  "description": "dockerizing",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "engines": {
+    "node": ">=4.2.3"
+  },
+  "keywords": [
+    "docker",
+    "dockerizing"
+  ],
+  "author": "Stanislav Gumeniuk <i@vigo.su>",
+  "license": "ISC",
+  "dependencies": {
+    "path": "^0.12.7",
+    "promised-exec": "^1.0.1",
+    "wash": "^1.5.1"
+  }
+}
