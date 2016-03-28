@@ -12,6 +12,10 @@
     "docker",
     "dockerizing"
   ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ViGo5190/dockerizing.git"
+  },
   "author": "Stanislav Gumeniuk <i@vigo.su>",
   "license": "ISC",
   "dependencies": {
