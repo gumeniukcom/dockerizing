@@ -4,16 +4,6 @@
 
 "use strict";
 
-function getEngine(packageJson) {
-    if (packageJson.engines && packageJson.engines.node) {
-        var found = packageJson.engines.node.match(/\d(\.\d)?(\.\d)?/gi);
-        if (found) {
-            return found[0];
-        }
-    }
-    return '4.2.3'
-}
-
 module.exports = function (packageJson) {
     return new Promise(function (resolve, reject) {
         if (!packageJson) {
@@ -37,6 +27,20 @@ module.exports = function (packageJson) {
             params.entryPoint = packageJson.main;
         }
 
+        if (packageJson.docker){
+            params.docker = packageJson.docker;
+        }
+
         resolve(params);
     });
 };
+
+function getEngine(packageJson) {
+    if (packageJson.engines && packageJson.engines.node) {
+        let found = packageJson.engines.node.match(/\d(\.\d)?(\.\d)?/gi);
+        if (found) {
+            return found[0];
+        }
+    }
+    return '4.2.3'
+}

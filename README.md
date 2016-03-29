@@ -20,6 +20,29 @@ Just add to your `package.json` in section `scripts`. It should be like this:
     },
 ```
 
+# Docker config
+
+Add `docker` section into your `package.json`
+
+### Port forwarding
+
+if you need forward port from container to host machine add configuration :
+
+```
+      "docker": {
+        "ports": [
+          {
+            "in": 3000,
+            "out": 3000
+          }
+        ]
+      },
+```
+
+Ports section include array of object, which port should be forward:
+  * `in` - port in cotainer,
+  * `out` - port in host machine
+
 # Dockerizing
 
 For create Dockerfile just run

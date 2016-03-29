@@ -4,21 +4,21 @@
 
 "use strict";
 
-var fs = require('fs');
-var path = require('path');
+var exec = require('promised-exec');
+var co = require('co');
 
 var packageJsonSource = require('../../package.json');
 var packageJsonParser = require('./src/packageJsonParser');
+var buildRunCommand = require('./src/buildRunCommand');
 
-var exec = require('promised-exec');
+co(function * () {
+    let params = yield packageJsonParser(packageJsonSource);
+    let buildCommand = yield buildRunCommand(params);
 
-packageJsonParser(packageJsonSource)
-    .then(function(params){
-        return exec('docker run -d ' + params.name);
-    })
-    .then(function(result){
-        console.log(result);
-    })
+    let buildResult = yield exec(buildCommand);
+
+    console.log(buildResult);
+})
     .catch(function (error) {
         console.error(error);
     });

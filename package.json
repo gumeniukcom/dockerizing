@@ -19,6 +19,7 @@
   "author": "Stanislav Gumeniuk <i@vigo.su>",
   "license": "ISC",
   "dependencies": {
+    "co": "^4.6.0",
     "path": "^0.12.7",
     "promised-exec": "^1.0.1",
     "wash": "^1.5.1"

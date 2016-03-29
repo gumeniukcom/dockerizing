@@ -11,9 +11,9 @@ var wash = require('wash');
 
 module.exports = function (params) {
     return new Promise(function (resolve, reject) {
-        var dockerfileTemplate = fs.readFileSync(path.join(__dirname, 'templates', 'Dockerfile.tmp'), {encoding: 'utf8'});
+        let dockerfileTemplate = fs.readFileSync(path.join(__dirname, 'templates', 'Dockerfile.tmp'), {encoding: 'utf8'});
 
-        var out = wash.render(dockerfileTemplate, params);
+        let out = wash.render(dockerfileTemplate, params);
 
         resolve(out);
     })
